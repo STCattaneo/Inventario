@@ -1,5 +1,4 @@
 package Inventario;
-import java.util.ArrayList;
 
 import java.util.*;
 import javax.swing.*;
@@ -11,6 +10,8 @@ public class Main {
         byte opcion=0;
 
         boolean decisión=false;
+
+        String elección=" ";
         
 
 
@@ -104,6 +105,25 @@ public class Main {
     
                 default:
     
+            }
+            
+            if(decisión==false){
+                
+                do{
+
+                    elección=JOptionPane.showInputDialog("¿Desea realizar otra operacion? \nY - Si \nN - No");
+    
+                }while(elección.equalsIgnoreCase("Y")==false && elección.equalsIgnoreCase("N")==false);
+    
+                if(elección.equalsIgnoreCase("Y")==true){
+    
+                    decisión=false;
+    
+                }else if(elección.equalsIgnoreCase("N")==true){
+    
+                    decisión=true;
+                    
+                }
             }
 
         }while(decisión==false);
