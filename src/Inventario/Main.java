@@ -9,6 +9,8 @@ public class Main {
 
         byte opcion=0;
 
+        byte opcionmod=0;
+
         boolean decisión=false;
 
         String elección=" ";
@@ -64,21 +66,49 @@ public class Main {
 
                     nombre = JOptionPane.showInputDialog("Ingrese el nombre del articulo que deseas modificar");
 
-                    String nuevonombre = JOptionPane.showInputDialog("Ingrese el nuevo nombre del articulo");
+                    do{
 
-                    int nuevacantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la nueva cantidad"));
+                        opcionmod=Byte.parseByte(JOptionPane.showInputDialog("¿Que operación deseas realizar? \n1 - Reemplazar el articulo \n2 - Modificar la cantidad del articulo  \n3 - Salir"));
 
-                    Iterator<Articulo> it2= articulos.iterator();
+                    }while(opcionmod<=0 || opcionmod>=4);
 
-                    while(it2.hasNext()){
+                    if(opcionmod==1){
 
-                        Articulo c= it2.next();
+                        String nuevonombre = JOptionPane.showInputDialog("Ingrese el nuevo nombre del articulo");
+
+                        int nuevacantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la nueva cantidad"));
+
+                        Iterator<Articulo> it2= articulos.iterator();
+
+                        while(it2.hasNext()){
+
+                            Articulo c= it2.next();
                     
-                        if(c.getnombre().equals(nombre)){
+                            if(c.getnombre().equals(nombre)){
                      
                             c.setnombre(nuevonombre);
                             c.setcantidad(nuevacantidad);
                         
+                            }
+
+                        }
+
+                    }else if(opcionmod==2){
+
+                        int nuevacantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la nueva cantidad"));
+
+                        Iterator<Articulo> it2= articulos.iterator();
+
+                        while(it2.hasNext()){
+
+                            Articulo c= it2.next();
+                    
+                            if(c.getnombre().equals(nombre)){
+                            
+                            c.setcantidad(nuevacantidad);
+                        
+                            }
+
                         }
 
                     }
