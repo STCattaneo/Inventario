@@ -1,4 +1,4 @@
-package Inventario;
+
 
 import java.util.*;
 import javax.swing.*;
